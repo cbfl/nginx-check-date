@@ -123,8 +123,7 @@ static ngx_int_t ngx_http_check_date_variable(ngx_http_request_t *r, ngx_http_va
 		ngx_log_error(NGX_LOG_ERR, r->connection->log, 0, "check_date_module: variable not found '%s'", check_date_conf->variable_name.data);
 		return NGX_OK;
 	}
-	
-	if (date_variable->data == ''){
+	if (ngx_strlen(date_variable->data) == 0){
 		return NGX_OK;
 	}
 	
