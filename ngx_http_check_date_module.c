@@ -124,6 +124,10 @@ static ngx_int_t ngx_http_check_date_variable(ngx_http_request_t *r, ngx_http_va
 		return NGX_OK;
 	}
 	
+	if (date_variable->data == ''){
+		return NGX_OK;
+	}
+	
 	//Comparison
 	struct tm tm;
 	memset(&tm, 0, sizeof tm); //focker!
